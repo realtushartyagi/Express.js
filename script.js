@@ -45,3 +45,12 @@ const retry = async (fn, attempts = 3, delay = 200, backoff = 2) => {
     }
   }
 };
+
+
+async function* asyncRange(n, ms = 100) {
+  for (let i = 0; i < n; i++) {
+    // simulated async delay
+    await new Promise((r) => setTimeout(r, ms));
+    yield i;
+  }
+}
